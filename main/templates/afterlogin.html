@@ -1,0 +1,233 @@
+{% load static %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrustody SDK</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .en-logo {
+            -webkit-filter: invert(100%) sepia(0) saturate(5%) hue-rotate(180deg) brightness(105%) contrast(102%);
+            filter: invert(100%) sepia(0) saturate(5%) hue-rotate(180deg) brightness(105%) contrast(102%);
+            height: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header d-flex justify-content-between align-items-center">
+            <div class="d-flex logo align-items-center">
+                <div><i class="fas fa-bars" style="font-size:xx-large;"></i></div>
+                <div class="ml-4">
+                    <img class="en-logo" src="https://www.entrustody.com/assets/logo.svg">
+                </div>
+            </div>
+            <div class="d-flex navs">
+                <div class="mx-3"><i class="fas fa-home"></i><a href ='afterlogin'>Home</a></div>
+                <div class="mx-3"><i class="far fa-user-circle"></i><a href ='books'>Documents</a></div>
+                <div class="mx-3"><i class="fas fa-users"></i><a href ='user_list'>Group</a></div>
+                <div class="mx-3"><i class="far fa-address-card"></i>Contacts</div>
+                <div class="mx-3"><i class="fas fa-home"></i>Households</div>
+
+            </div>
+            <div class="d-flex profile align-items-center mx-3">
+                {% if user.is_authenticated %}
+                <li>Hello ,{{user.username}}</li>
+                <a href ='logout'>LOGOUT</a>
+                {% else%}
+                <div class="align-item-self"><i class="fas fa-bell"></i></div>
+                <img src="/assets/images/blank-profile.webp" class="user-profile" />
+            </div>
+            {%endif %}
+        </div>
+    </header>
+
+    <!-- sidebar -->
+    <div class="row">
+        <div class="sidebar col-1 d-flex flex-column m-auto">
+            <div class="mx-auto mt-5"><i class="fas fa-chart-pie"></i></div>
+            <div class="mx-auto mt-5"><i class="fas fa-ellipsis-h"></i></div>
+            <div class="mx-auto mt-5"><i class="fas fa-cloud"></i></div>
+            <div class="mx-auto mt-5"><i class="fas fa-calendar-alt"></i></div>
+            <div class="mx-auto mt-5"><i class="fas fa-user"></i></div>
+        </div>
+
+        <!-- main web component layout -->
+        <div class="container col-11 mt-5">
+            <div class="add-button">
+                <button id="myBtn" class="btn green">Add</button>
+            </div>
+
+            <!-- for account create -->
+            <!-- <entrustody-account-create></entrustody-account-create> -->
+            <!-- for account list -->
+            <entrustody-account-list></entrustody-account-list>
+        </div>
+    </div>
+
+
+    <!-- Trigger/Open The Modal -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="text-right"><span class="close">&times;</span></div>
+            <entrustody-account-create></entrustody-account-create>
+        </div>
+
+    </div>
+
+</body>
+<script src="/assets/js/entrustody.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+
+<script>
+    // Get the modal
+    let modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    let btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    let span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    const button = document.getElementsByClassName('btn')[1]
+    console.log(button[0]);
+    button.onclick = () => {
+        modal.style.display = "none";
+        window.location.reload();
+    }
+</script>
+
+</html>
+
+<style>
+    .header {
+        background-color: #162c2e;
+        height: 60px;
+        color: white
+    }
+
+    .logo div,
+    .navs div,
+    .profile div {
+        margin: 10px;
+    }
+
+    .user-profile {
+        border-radius: 50%;
+        height: 47px;
+        border: 2px solid white;
+    }
+
+    .sidebar {
+        display: block;
+        background-color: #e3eaed;
+        width: 60px;
+        height: 90vh
+    }
+
+    i {
+        font-size: x-large;
+        cursor: pointer;
+    }
+
+    .navs i,
+    .navs div {
+        font-size: small;
+        margin-right: 3px;
+        cursor: pointer;
+    }
+
+    .green {
+        background-color: #4ca5a6;
+        color: white;
+    }
+
+    .add-button {
+        float: right;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}

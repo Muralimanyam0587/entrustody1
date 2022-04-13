@@ -1,0 +1,150 @@
+{% load static %}
+
+  <html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Travello template project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+	<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+  <title>Entrustody Advisor Portal</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/entrustody-logo.svg">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzk5epE_h3TLmf6z63M9KCfDhFQy6w79s&amp;libraries=places&amp;language=en"></script>
+  <script type="text/javascript" src="https://cdn.yodlee.com/fastlink/v4/initialize.js"></script>
+  <script src="https://cdn.veriff.me/sdk/js/1.1/veriff.min.js"></script><style type="text/css">#veriff-root {
+  max-width: 400px;
+  min-width: 208px;
+}
+
+.veriff-label {
+  display: none;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  color: #505366;
+  font-size: 14px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.veriff-text {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  margin: 0 0 16px;
+  border-radius: 4px;
+  border: 1px solid #e6ebf4;
+  font-size: 16px;
+  background-color: #fafafc;
+  color: #222328;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, color, border-color, box-shadow, transform;
+}
+
+.veriff-text::placeholder {
+  color: #bdc0cf;
+}
+
+.veriff-text:hover {
+  border-color: #bdc0cf;
+}
+
+.veriff-text:focus {
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(34, 35, 40, 0.08);
+  transform: translateY(-2px);
+}
+
+.veriff-submit {
+  width: 100%;
+  background-color: #004e5f;
+  color: white;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  border: 1px solid transparent;
+
+  position: relative;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, color, border-color, box-shadow, transform;
+  cursor: pointer;
+}
+
+.veriff-submit:hover,
+.veriff-submit:focus {
+  transform: translateY(-2px);
+}
+
+.veriff-description {
+  color: #505366;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 16px 0;
+  text-align: center;
+}
+
+.veriff-description a {
+  font-weight: 400;
+  font-size: 12px;
+  color: #006379;
+}
+</style>
+  <script src="https://cdn.veriff.me/incontext/js/v1/veriff.js"></script>
+
+<style>@charset "UTF-8";:root{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-gray-100:#f8f9fa;--bs-gray-200:#e9ecef;--bs-gray-300:#dee2e6;--bs-gray-400:#ced4da;--bs-gray-500:#adb5bd;--bs-gray-600:#6c757d;--bs-gray-700:#495057;--bs-gray-800:#343a40;--bs-gray-900:#212529;--bs-primary:#0d6efd;--bs-secondary:#6c757d;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#212529;--bs-primary-rgb:13,110,253;--bs-secondary-rgb:108,117,125;--bs-success-rgb:25,135,84;--bs-info-rgb:13,202,240;--bs-warning-rgb:255,193,7;--bs-danger-rgb:220,53,69;--bs-light-rgb:248,249,250;--bs-dark-rgb:33,37,41;--bs-white-rgb:255,255,255;--bs-black-rgb:0,0,0;--bs-body-color-rgb:33,37,41;--bs-body-bg-rgb:255,255,255;--bs-font-sans-serif:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--bs-gradient:linear-gradient(180deg,#ffffff26,#fff0);--bs-body-font-family:var(--bs-font-sans-serif);--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-bg:#fff;}*,:after,:before{box-sizing:border-box;}@media (prefers-reduced-motion: no-preference){:root{scroll-behavior:smooth;}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);font-weight:var(--bs-body-font-weight);line-height:var(--bs-body-line-height);color:var(--bs-body-color);text-align:var(--bs-body-text-align);background-color:var(--bs-body-bg);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0);}:root{--main-color:#4ca5a6;--secondary-color:#162c2e;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue-Thin.40859d5e9bfec7b2f837.eot);src:url(HelveticaNeue-Thin.40859d5e9bfec7b2f837.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue-Thin.df8dc946209e4e23e979.woff2) format("woff2"),url(HelveticaNeue-Thin.fbe03fed34515e3c01cc.woff) format("woff"),url(HelveticaNeue-Thin.245f8d45f0b5894a5c0c.ttf) format("truetype");font-weight:100;font-style:normal;font-display:swap;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue-Italic.149560fe05ee7b1ac90e.eot);src:url(HelveticaNeue-Italic.149560fe05ee7b1ac90e.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue-Italic.727f1efafb15c00c8f73.woff2) format("woff2"),url(HelveticaNeue-Italic.4b298be9f5588bbe96d4.woff) format("woff"),url(HelveticaNeue-Italic.e271c0e1a5213cd5ca28.ttf) format("truetype");font-weight:400;font-style:italic;font-display:swap;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue.baab0dfab5c21ac009e5.eot);src:url(HelveticaNeue.baab0dfab5c21ac009e5.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue.56acb82589341e17e7ad.woff2) format("woff2"),url(HelveticaNeue.f0ab864ad2834c9a8892.woff) format("woff"),url(HelveticaNeue.6fc655606740952a38ac.ttf) format("truetype");font-weight:400;font-style:normal;font-display:swap;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue-Medium.3bb4e0818e220dcc6720.eot);src:url(HelveticaNeue-Medium.3bb4e0818e220dcc6720.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue-Medium.b1fd8fcd2cf9e7bd9329.woff2) format("woff2"),url(HelveticaNeue-Medium.567a0f4b356c6509e92e.woff) format("woff"),url(HelveticaNeue-Medium.d7cef427a78d07464a92.ttf) format("truetype");font-weight:500;font-style:normal;font-display:swap;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue-Medium_1.a8f14d267bb60e369bed.eot);src:url(HelveticaNeue-Medium_1.a8f14d267bb60e369bed.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue-Medium_1.d219ab4f5d72a235807c.woff2) format("woff2"),url(HelveticaNeue-Medium_1.61893adae1f696831c0c.woff) format("woff"),url(HelveticaNeue-Medium_1.8358ddab2f5caa784779.ttf) format("truetype");font-weight:500;font-style:normal;font-display:swap;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue-Italic_1.3dc2c05500dfbb11be0a.eot);src:url(HelveticaNeue-Italic_1.3dc2c05500dfbb11be0a.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue-Italic_1.24c413db2853897cc217.woff2) format("woff2"),url(HelveticaNeue-Italic_1.530f82b6a6d5ddd9517c.woff) format("woff"),url(HelveticaNeue-Italic_1.aa5e4eaaf25d8a7fc5d3.ttf) format("truetype");font-weight:400;font-style:italic;font-display:swap;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue-Light.6f21aa7e37883536e4b0.eot);src:url(HelveticaNeue-Light.6f21aa7e37883536e4b0.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue-Light.01130bc2b6059d6c28b6.woff2) format("woff2"),url(HelveticaNeue-Light.972e33f1ceca494309db.woff) format("woff"),url(HelveticaNeue-Light.f7a3ce7444617a6e91b1.ttf) format("truetype");font-weight:300;font-style:normal;font-display:swap;}@font-face{font-family:Helvetica Neue;src:url(HelveticaNeue-Bold.aa33ff49b5209f590c75.eot);src:url(HelveticaNeue-Bold.aa33ff49b5209f590c75.eot?#iefix) format("embedded-opentype"),url(HelveticaNeue-Bold.581893a9b0d53b0f6c4a.woff2) format("woff2"),url(HelveticaNeue-Bold.0e1243c356d23f3a2dbf.woff) format("woff"),url(HelveticaNeue-Bold.71c3c340256f46eff64e.ttf) format("truetype");font-weight:700;font-style:normal;font-display:swap;}*{font-family:Helvetica Neue;}body{background:#fff;}:root{--surface-a:#fff;--surface-b:#f8f9fa;--surface-c:#e9ecef;--surface-d:#dee2e6;--surface-e:#fff;--surface-f:#fff;--text-color:#495057;--text-color-secondary:#6c757d;--primary-color:#2196f3;--primary-color-text:#fff;--font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;--surface-0:#fff;--surface-50:#fafafa;--surface-100:#f5f5f5;--surface-200:#eee;--surface-300:#e0e0e0;--surface-400:#bdbdbd;--surface-500:#9e9e9e;--surface-600:#757575;--surface-700:#616161;--surface-800:#424242;--surface-900:#212121;--gray-50:#fafafa;--gray-100:#f5f5f5;--gray-200:#eee;--gray-300:#e0e0e0;--gray-400:#bdbdbd;--gray-500:#9e9e9e;--gray-600:#757575;--gray-700:#616161;--gray-800:#424242;--gray-900:#212121;--content-padding:1rem;--inline-spacing:0.5rem;--border-radius:3px;--surface-ground:#f8f9fa;--surface-section:#fff;--surface-card:#fff;--surface-overlay:#fff;--surface-border:#dee2e6;--surface-hover:#e9ecef;--maskbg:#0006;--focus-ring:0 0 0 0.2rem #a6d5fa;}*{box-sizing:border-box;}:root{--blue-50:#f4fafe;--blue-100:#cae6fc;--blue-200:#a0d2fa;--blue-300:#75bef8;--blue-400:#4baaf5;--blue-500:#2196f3;--blue-600:#1c80cf;--blue-700:#1769aa;--blue-800:#125386;--blue-900:#0d3c61;--green-50:#f6fbf6;--green-100:#d4ecd5;--green-200:#b2ddb4;--green-300:#90cd93;--green-400:#6ebe71;--green-500:#4caf50;--green-600:#419544;--green-700:#357b38;--green-800:#2a602c;--green-900:#1e4620;--yellow-50:#fffcf5;--yellow-100:#fef0cd;--yellow-200:#fde4a5;--yellow-300:#fdd87d;--yellow-400:#fccc55;--yellow-500:#fbc02d;--yellow-600:#d5a326;--yellow-700:#b08620;--yellow-800:#8a6a19;--yellow-900:#644d12;--cyan-50:#f2fcfd;--cyan-100:#c2eff5;--cyan-200:#91e2ed;--cyan-300:#61d5e4;--cyan-400:#30c9dc;--cyan-500:#00bcd4;--cyan-600:#00a0b4;--cyan-700:#008494;--cyan-800:#006775;--cyan-900:#004b55;--pink-50:#fef4f7;--pink-100:#fac9da;--pink-200:#f69ebc;--pink-300:#f1749e;--pink-400:#ed4981;--pink-500:#e91e63;--pink-600:#c61a54;--pink-700:#a31545;--pink-800:#801136;--pink-900:#5d0c28;--indigo-50:#f5f6fb;--indigo-100:#d1d5ed;--indigo-200:#acb4df;--indigo-300:#8893d1;--indigo-400:#6372c3;--indigo-500:#3f51b5;--indigo-600:#36459a;--indigo-700:#2c397f;--indigo-800:#232d64;--indigo-900:#192048;--teal-50:#f2faf9;--teal-100:#c2e6e2;--teal-200:#91d2cc;--teal-300:#61beb5;--teal-400:#30aa9f;--teal-500:#009688;--teal-600:#008074;--teal-700:#00695f;--teal-800:#00534b;--teal-900:#003c36;--orange-50:#fff8f2;--orange-100:#fde0c2;--orange-200:#fbc791;--orange-300:#f9ae61;--orange-400:#f79530;--orange-500:#f57c00;--orange-600:#d06900;--orange-700:#ac5700;--orange-800:#874400;--orange-900:#623200;--bluegray-50:#f7f9f9;--bluegray-100:#d9e0e3;--bluegray-200:#bbc7cd;--bluegray-300:#9caeb7;--bluegray-400:#7e96a1;--bluegray-500:#607d8b;--bluegray-600:#526a76;--bluegray-700:#435861;--bluegray-800:#35454c;--bluegray-900:#263238;--purple-50:#faf4fb;--purple-100:#e7cbec;--purple-200:#d4a2dd;--purple-300:#c279ce;--purple-400:#af50bf;--purple-500:#9c27b0;--purple-600:#852196;--purple-700:#6d1b7b;--purple-800:#561561;--purple-900:#3e1046;}</style><link rel="stylesheet" href="styles.ff6af53c0a402181d9e1.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.ff6af53c0a402181d9e1.css"></noscript><style></style><style>[_nghost-itp-c107]{position:relative;display:block;pointer-events:none}[_nghost-itp-c107]   .ngx-spinner[_ngcontent-itp-c107]{transition:350ms linear;display:block;position:absolute;top:5px;left:0}[_nghost-itp-c107]   .ngx-spinner[_ngcontent-itp-c107]   .ngx-spinner-icon[_ngcontent-itp-c107]{width:14px;height:14px;border:2px solid transparent;border-top-color:inherit;border-left-color:inherit;border-radius:50%;-webkit-animation:.4s linear infinite loading-bar-spinner;animation:.4s linear infinite loading-bar-spinner}[_nghost-itp-c107]   .ngx-bar[_ngcontent-itp-c107]{transition:width 350ms;position:absolute;top:0;left:0;width:100%;height:2px;border-bottom-right-radius:1px;border-top-right-radius:1px}[dir=rtl]   [_nghost-itp-c107]   .ngx-bar[_ngcontent-itp-c107]{right:0;left:unset}[fixed=true][_nghost-itp-c107]{z-index:10002}[fixed=true][_nghost-itp-c107]   .ngx-bar[_ngcontent-itp-c107]{position:fixed}[fixed=true][_nghost-itp-c107]   .ngx-spinner[_ngcontent-itp-c107]{position:fixed;top:10px;left:10px}[dir=rtl]   [fixed=true][_nghost-itp-c107]   .ngx-spinner[_ngcontent-itp-c107]{right:10px;left:unset}@-webkit-keyframes loading-bar-spinner{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes loading-bar-spinner{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style><style>.form-signin[_ngcontent-itp-c115]{width:100%;max-width:330px;padding:15px;margin:auto;background-color:var(--secondary-color);color:#fff;position:relative}button[_ngcontent-itp-c115]{background:var(--main-color);border:2px solid #4ea6a6!important;border-radius:8px!important;background:#162c2e;padding:14px 25px}button[_ngcontent-itp-c115]:hover{color:#fff;background-color:#1c1f23;border-color:#1a1e21}.centerer[_ngcontent-itp-c115]{display:flex;align-items:center;justify-content:center;height:100vh}.login-errors[_ngcontent-itp-c115]{position:absolute;top:20px}label[_ngcontent-itp-c115]{color:#000}.footer-text-login[_ngcontent-itp-c115]{text-align:center}.logo[_ngcontent-itp-c115]{position:absolute;top:-70px;left:0;right:0;margin:auto}</style><style>.p-message-close,.p-message-wrapper{display:flex;align-items:center}.p-message-close{justify-content:center}.p-message-close.p-link{margin-left:auto;overflow:hidden;position:relative}</style><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/47/7a/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/47/7a/util.js"></script></head>
+<body>
+<!--<version>1.0.2</version>-->
+<app-root _nghost-itp-c111="" ng-version="12.2.4"><ngx-loading-bar _ngcontent-itp-c111="" _nghost-itp-c107="" fixed="true" style="color: rgb(34, 153, 221);"><!----></ngx-loading-bar><!----><div _ngcontent-itp-c111="" class="sidebar-wrapper"><div _ngcontent-itp-c111=""><router-outlet _ngcontent-itp-c111=""></router-outlet><app-login _nghost-itp-c115="" class="ng-star-inserted"><div _ngcontent-itp-c115="" class="centerer"><p-messages _ngcontent-itp-c115="" class="p-element login-errors ng-tns-c100-0 ng-star-inserted"><div role="alert" class="p-messages p-component ng-tns-c100-0"><!----><!----><!----><!----></div></p-messages><main _ngcontent-itp-c115="" class="form-signin"><img _ngcontent-itp-c115="" src="https://www.entrustody.com/assets/logo.svg" alt="" class="px-2 logo"><div _ngcontent-itp-c115="">Advisor Portal</div>
+  
+  
+  
+  
+  
+  
+  <div class="custom-modal-body ">
+
+  <form action ='auth_login' method="post">
+     {% csrf_token %} 
+    <div _ngcontent-itp-c115="" class="form-floating my-2">
+      <label _ngcontent-itp-c115="" for="floatingInput">username</label>
+      <input  class="form-control ng-untouched ng-pristine ng-valid" type="text" placeholder="Enter Username" name="username" required >
+      </div>
+            <div _ngcontent-itp-c115="" class="form-floating my-2">
+        <input  class="form-control ng-untouched ng-pristine ng-valid" _ngcontent-itp-c115="" type="password"  name="password"  placeholder="Enter Password"  required>
+  <label _ngcontent-itp-c115="" for="floatingPassword">Password</label>
+  </div>
+  <small _ngcontent-itp-c115="">Go to<a _ngcontent-itp-c115="" routerlink="../client-login" href="auth_client_login"> Client Portal</a>
+    </small>
+    <button _ngcontent-itp-c115="" type="submit" class="w-100 btn btn-lg btn-primary mt-5">Sign in</button>
+    <p _ngcontent-itp-c115="" class="mt-5 mb-3 text-muted footer-text-login">team@entrustody.com</p>
+    </form>
+    </div>
+    
+    
+    
+    </main></div></app-login><!----></div></div></app-root>
+<script src="runtime.ca04534831f8f39cdc08.js" defer=""></script><script src="polyfills.b8feb060e0b1b6e7cfde.js" defer=""></script><script src="scripts.4415f70030683f8d0e2f.js" defer=""></script><script src="main.ef912b514540d71e1e43.js" defer=""></script>
+
+</body>
+
+</html>

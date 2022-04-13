@@ -1,0 +1,160 @@
+
+
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>BOOKS</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Travello template project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+	<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+	<style>
+		.header {
+			background-color: #162c2e;
+			height: 60px;
+			color: white
+		}
+	
+		.logo div,
+		.navs div,
+		.profile div {
+			margin: 10px;
+		}
+	
+		.user-profile {
+			border-radius: 50%;
+			height: 47px;
+			border: 2px solid white;
+		}
+	
+		.sidebar {
+			display: block;
+			background-color: #e3eaed;
+			width: 60px;
+			height: 90vh
+		}
+	
+		i {
+			font-size: x-large;
+			cursor: pointer;
+		}
+	
+		.navs i,
+		.navs div {
+			font-size: small;
+			margin-right: 3px;
+			cursor: pointer;
+		}
+	
+		.green {
+			background-color: #4ca5a6;
+			color: white;
+		}
+	
+		.add-button {
+			float: right;
+		}
+	
+		/* The Modal (background) */
+		.modal {
+			display: none;
+			/* Hidden by default */
+			position: fixed;
+			/* Stay in place */
+			z-index: 1;
+			/* Sit on top */
+			left: 0;
+			top: 0;
+			width: 100%;
+			/* Full width */
+			height: 100%;
+			/* Full height */
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0.4);
+			/* Black w/ opacity */
+		}
+	
+		/* Modal Content/Box */
+		.modal-content {
+			background-color: #fefefe;
+			margin: 10% auto;
+			/* 15% from the top and centered */
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+			/* Could be more or less, depending on screen size */
+		}
+	
+		/* The Close Button */
+		.close {
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+	
+		.close:hover,
+		.close:focus {
+			color: black;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+ 
+    <header>
+      {% block content_header %}
+        <div class="header d-flex justify-content-between align-items-center">
+            <div class="d-flex logo align-items-center">
+                <div><i class="fas fa-bars" style="font-size:xx-large;"></i></div>
+                <div class="ml-4">
+                    <img class="en-logo" src="https://www.entrustody.com/assets/logo.svg">
+                </div>
+            </div>
+            <div class="d-flex navs">
+                <div class="mx-3"><i class="fas fa-home"></i><a href ='afterlogin'>Home</a></div>
+                <div class="mx-3"><i class="far fa-user-circle"></i><a href ='books'>Documents</a></div>
+                <div class="mx-3"><i class="fas fa-users"></i>Group</div>
+                <div class="mx-3"><i class="far fa-address-card"></i>Contacts</div>
+                <div class="mx-3"><i class="fas fa-home"></i>Households</div>
+            </div>
+            <div class="d-flex profile align-items-center mx-3">
+                <div class="align-item-self"><i class="fas fa-bell"></i></div>
+                <img src="/assets/images/blank-profile.webp" class="user-profile" />
+            </div>
+        </div>
+		{% endblock %}
+    </header>
+
+ <h2>upload here</h2>
+<div class ='container'>
+<form method ='post' enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form|crispy}}
+    <button type="submit" class="btn-primary">UPLOAD</button>
+</form>
+
+</div>
+{% endblock %}
+</body>
+</html>
+
